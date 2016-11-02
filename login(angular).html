@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>LOGIN/SIGN UP</title>
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.js"></script>
+    <script src="lib/respond/respond.js"></script>
+    <![endif]-->
+    <link rel="icon" href="images/pexels-icon-c89972421096df12c2b564575d6df896b612ca415b706033d2e44562f97343bc.png">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/pexelsPage_footer.css">
+    <script src="lib/angular.js"></script>
+</head>
+<body ng-app="LoginPage">
+<nav class="navbar">
+    <div class="container-fluid clearfix">
+        <div class="navbar-header fr">
+            <button type="button" class="navbar-toggle navbar-search " id="navbar-search">
+                <a href="javascript:;" class="pexels-search"></a>
+            </button>
+            <button type="button" class="navbar-toggle navbar-menue" id="navbarMenueBtn">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div id="navbarMenueBox"></div>
+        </div>
+        <a href="#" class="navbar-brand">
+            <img src="images/pexels-sm-7627e30869d1427acc013a27df1995c0a02c4122903e4831e3ed95a31469449d.png" height="21"
+                 width="95"/>
+        </a>
+        <form class="navbar-form ">
+            <input type="text" class="form-control" placeholder="Search for free photos">
+            <a href="#" class="pexels-search"></a>
+        </form>
+        <ul class="navbar-nav fr">
+            <li class="fl"><a href="##">License</a></li>
+            <li class="fl"><a href="##">Upload</a></li>
+            <li class="fl"><a href="##">
+                Browse
+                <svg width="8" class="navbar__icon-caret" height="5" viewBox="0 0 8 5">
+                    <path d="M6.752 1.514C7.472.678 7.158 0 6.057 0H1.052C-.05 0-.332.654.426 1.46L2.38 3.54c.758.806 1.952.786 2.674-.054l1.698-1.972z"
+                          fill="#FFFFFF" fill-rule="evenodd"></path>
+                </svg>
+            </a></li>
+            <li class="fl">
+                <a href="##">•••</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="alert" ng-show='data.alertshow'>{{data.alert}}</div>
+<div class="centered-box">
+    <div class="tabs">
+        <a class="tabs__tab" ng-class={'tabs__tab--active':data.active==='login'} ng-click=actions.changeState('login')
+           href="##">Login</a>
+        <a class="tabs__tab " ng-class={'tabs__tab--active':data.active==='signUp'}
+           ng-click=actions.changeState('signUp') href="##">Sign Up</a>
+    </div>
+
+    <div class="centered-box_content" ng-hide="data.active!=='login'">
+        <form class="form" ng-controller='login' >
+            <label class="form__label">
+                <p>Email</p>
+                <input autofocus="autofocus" class="form__input" type="email" ng-model='data.email'
+                       name="user[email]">
+            </label>
+            <label class="form__label">
+                <p>Password</p>
+                <input class="form__input" type="password" ng-model="data.password" name="user[password]">
+            </label>
+            <button class="btn-secondary form__input" ng-click="actions.submitLogin()">Login</button>
+            <a href="##">Forgot your password?</a>
+        </form>
+    </div>
+    <div class="centered-box_content" ng-hide="data.active!=='signUp'" >
+        <form class="form" id="new_user" ng-controller='signUp'>
+            <div class="form__group fl">
+                <label class="form__label" for="user_first_name">First name</label>
+                <input autofocus="autofocus" required="required" class="form__input" maxlength="25" size="25"
+                       type="text"
+                       name="user[first_name]" id="user_first_name" ng-model='data.firstName'>
+            </div>
+            <div class="form__group fl">
+                <label for="user_last_name" class="form__label">Last name <span
+                        class="form__description">(optional)</span></label>
+                <input class="form__input" maxlength="25" size="25" type="text" name="user[last_name]"
+                       id="user_last_name" ng-model='data.lastName'>
+            </div>
+            <label class="form__label">
+                <p>Email</p>
+                <input required="required" class="form__input" type="email" value="" name="user[email]" ng-model='data.email'>
+            </label>
+            <label class="form__label">
+                <p>Password<span class="form__description">(6 characters minimum)</span></p>
+                <input class="form__input" type="password" name="user[password]" ng-model='data.password'>
+            </label>
+            <div class="">
+                <label>
+                    <input type="checkbox" name="user[subscribed_newsletter]" ng-model='data.checked'>
+                    Get the best photos in your inbox and receive 40 exclusive photos
+                </label>
+            </div>
+            <input value="en" type="hidden" name="user[locale]" id="user_locale">
+            <button class="btn-secondary form__input" ng-click="actions.submitSignUp()">Login</button>
+            <small class="l-lg-12 form__description text-center">
+                By joining, you agree to our <a href="index-231.htm" tppabs="https://www.pexels.com/terms-of-service/"
+                                                rel="nofollow" target="_blank">Terms of Service</a> and <a
+                    href="index-232.htm" tppabs="https://www.pexels.com/privacy-policy/" rel="nofollow" target="_blank">Privacy
+                Policy</a>
+            </small>
+        </form>
+    </div>
+
+</div>
+
+<footer class="footer clearfix">
+    <div class="l-container-center">
+        <div class="l-row">
+            <div class="l-sm-6 footer_list">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="##"> Pexels Videos </a></li>
+                    <li><a href="##"> Newsletter </a></li>
+                    <li><a href="##"> Blog </a></li>
+                    <li><a href="##"> Designbreak </a></li>
+                    <li><a href="##"> API </a></li>
+                    <li><a href="##"> FAQ </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 footer_list">
+                <h5>More</h5>
+                <ul>
+                    <li><a href="##"> Popular photos </a></li>
+                    <li><a href="##"> High definition wallpapers </a></li>
+                    <li><a href="##"> Photo license </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 hidden-sm footer_list footer_font_small">
+                <h5>Photos</h5>
+                <ul>
+                    <li><a href="##">Nature images, wallpapers </a></li>
+                    <li><a href="##"> Beach pictures </a></li>
+                    <li><a href="##"> Flower images </a></li>
+                    <li><a href="##"> Black and white photography </a></li>
+                    <li><a href="##"> Dog images </a></li>
+                    <li><a href="##"> City pictures, NYC wallpaper </a></li>
+                    <li><a href="##"> Desert pictures </a></li>
+                    <li><a href="##"> Black wallpaper </a></li>
+                    <li><a href="##"> Royalty free images </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 hidden-sm footer_list footer_font_small">
+                <ul>
+                    <li><a href="##">Christmas images </a></li>
+                    <li><a href="##"> Car images, wallpapers </a></li>
+                    <li><a href="##"> Pictures of people </a></li>
+                    <li><a href="##"> Business images </a></li>
+                    <li><a href="##"> Technology images </a></li>
+                    <li><a href="##"> Landscape pictures </a></li>
+                    <li><a href="##"> Winter pictures </a></li>
+                    <li><a href="##"> Sunset pictures </a></li>
+                    <li><a href="##"> Desktop wallpaper, backgrounds </a></li>
+                    <li><a href="##"> Public domain images </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-12 footer_more">
+                <div class="fr fl-sm">
+                    <p class="fl">Follow us:</p>
+                    <ul class="fl footer_more_ico">
+                        <li><a href="##" class="social-list_item"><i class="icon-facebook"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-twitter"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-gplus"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-pinterest"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="js/login.js"></script>
+<script>
+    angular.module('LoginPage', [])
+            .run(function ($rootScope) {
+                var data = $rootScope.data = {};
+                var actions = $rootScope.actions = {};
+                data.alert = 'You need to login or sign up before continuing.';
+                data.alertshow = false;
+                data.active = 'login';
+                actions.changeState = function (callback) {
+                    data.active = callback;
+                }
+            })
+            .controller('login', function ($scope,$rootScope) {
+                var data = $scope.data = {};
+                var actions = $scope.actions = {};
+                data.email = '';
+                data.password = '';
+                actions.submitLogin = function () {
+                    var userinfo = {};
+                    var Reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                    var yanzheng = Reg.test(data.email);
+                    if (data.email.trim()=='' || data.password.trim() == '') {
+                        $rootScope.data.alert = '请输入用户名和密码！';
+                        $rootScope.data.alertshow = true;
+                        return;
+                    }
+                    if (!yanzheng) {
+                        $rootScope.data.alertshow = true;
+                        $rootScope.data.alert = '请输入正确的邮箱！';
+                        return;
+                    }
+                    $rootScope.data.alertshow = false;
+                    userinfo.useremail = data.email;
+                    userinfo.userpassword = data.password;
+                    console.log(userinfo);
+                    data.email='';
+                    data.password='';
+                    alert('您好: '+userinfo.useremail+' 登录成功！')
+                }
+            })
+            .controller('signUp', function ($scope,$rootScope) {
+                var data = $scope.data = {};
+                var actions = $scope.actions = {};
+                data.firstName='';
+                data.lastName='';
+                data.email='';
+                data.password='';
+                data.checked = false;
+                actions.submitSignUp = function () {
+                    var userinfo = {};
+                    var Reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                    var yanzheng = Reg.test(data.email);
+                    if(data.firstName.trim()==''){
+                        $rootScope.data.alertshow = true;
+                        $rootScope.data.alert = '请输入名字！';
+                        return;
+                    }
+                    if(!yanzheng||data.password.trim()==''){
+                        $rootScope.data.alertshow = true;
+                        $rootScope.data.alert = '请输入正确的邮箱和密码！';
+                        return;
+                    }
+                    $rootScope.data.alertshow = false;
+                    userinfo.userFirst_name = data.firstName;
+                    userinfo.userLast_name = data.lastName;
+                    userinfo.userEmail = data.email;
+                    userinfo.userPassword = data.password;
+                    userinfo.userSubscribed_newsletter = data.checked;
+                    console.log(userinfo);
+                    data.firstName='';
+                    data.lastName='';
+                    data.email='';
+                    data.password='';
+                    data.checked = false;
+                    alert('恭喜'+ userinfo.userFirst_name+'注册成功')
+                }
+
+            })
+</script>
+</body>
+</html>

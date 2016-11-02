@@ -1,0 +1,117 @@
+@charset "utf-8";
+/*-------------footer start -------------------------*/
+.footer{
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    min-height: 255px;
+}
+.l-container-center {
+    margin: 0 auto;
+    padding:0  30px;
+    width: 1280px;
+    max-width: 100%;
+}
+.l-row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.footer_list{
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 16.66%;
+}
+.footer_list h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #eee;
+}
+.footer_list li a {
+    font-size: .92em;
+    display: inline-block;
+    padding: 2px 0;
+    color: #eee;
+    text-decoration: underline;
+}
+.footer_font_small{
+    font-size: 90%;
+}
+.footer_more{
+    float: right;
+    width: 33.33333%;
+}
+.footer_more p{
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+.footer_more_ico>li{
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.social-list_item:hover {
+    opacity: 1;
+}
+.social-list_item {
+    font-size: 1.1em;
+    display: inline-block;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    line-height: 34px;
+    border-radius: 50%;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    opacity: .6;
+    -webkit-transition: .2s all ease-in-out;
+    transition: .2s all ease-in-out;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before{
+    font-family: "icons"!important;
+    font-style: normal!important;
+    font-weight: normal!important;
+    font-variant: normal!important;
+    text-transform: none!important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-facebook:before {
+    content: "\66";
+}
+.icon-twitter:before {
+    content: "\74";
+}
+.icon-gplus:before {
+    content: "\67";
+}
+.icon-pinterest:before {
+    content: "\70";
+}
+.icon-instagram:before {
+    content: "\69";
+}
+/*-------------footer end -------------------------*/
+
+/*-------------媒体查询 start--------------------------*/
+@media (max-width:700px ){
+    .l-sm-12{
+        width: 100%;
+    }
+    .l-sm-6{
+        width: 50%;
+    }
+    .hidden-sm{
+        display: none;
+    }
+    .fl-sm{
+        float: left;
+    }
+}
+/*-------------媒体查询 end--------------------------*/

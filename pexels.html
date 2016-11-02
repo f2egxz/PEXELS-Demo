@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Person Project</title>
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.js"></script>
+    <script src="lib/respond/respond.js"></script>
+    <![endif]-->
+    <link rel="icon" href="images/pexels-icon-c89972421096df12c2b564575d6df896b612ca415b706033d2e44562f97343bc.png">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pexels.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container-fluid clearfix">
+        <div class="navbar-header fr">
+            <button type="button" class="navbar-toggle navbar-search " id="navbar-search">
+                <a href="javascript:;" class="pexels-search"></a>
+            </button>
+            <button type="button" class="navbar-toggle navbar-menue" id="navbarMenueBtn">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div id="navbarMenueBox"></div>
+        </div>
+        <a href="#" class="navbar-brand">
+            <img src="images/pexels-sm-7627e30869d1427acc013a27df1995c0a02c4122903e4831e3ed95a31469449d.png" height="21"
+                 width="95"/>
+        </a>
+        <form class="navbar-form ">
+            <input type="text" class="form-control" placeholder="Search for free photos">
+            <a href="#" class="pexels-search"></a>
+        </form>
+        <ul class="navbar-nav fr">
+            <li class="fl"><a href="##">License</a></li>
+            <li class="fl"><a href="##">Upload</a></li>
+            <li class="fl"><a href="##">
+                Browse
+                <svg width="8" class="navbar__icon-caret" height="5" viewBox="0 0 8 5">
+                    <path d="M6.752 1.514C7.472.678 7.158 0 6.057 0H1.052C-.05 0-.332.654.426 1.46L2.38 3.54c.758.806 1.952.786 2.674-.054l1.698-1.972z"
+                          fill="#FFFFFF" fill-rule="evenodd"></path>
+                </svg>
+            </a></li>
+            <li class="fl">
+                <a href="##">•••</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<header class="search">
+    <h1 class="search-title"></h1>
+    <h2 class="search-subtitle">
+        Best free stock photos in one place.
+        <a href="#">Learn More</a>
+    </h2>
+    <section class="search-text">
+        <form action="#">
+            <input type="search" placeholder="Search for free photos…" class="text-input">
+            <a href="#" class="pexels-search"></a>
+        </form>
+        <h3 class="text__title">Popular Searches:</h3>
+        <ul class="text__tags">
+            <li><a href="#">business</a></li>
+            <li><a href="#">new york</a></li>
+            <li><a href="#">study</a></li>
+            <li><a href="#">phone</a></li>
+            <li><a href="#">shoes</a></li>
+            <li><a href="#">security</a></li>
+            <li><a href="#">architecture</a></li>
+            <li><a href="#">marketing</a></li>
+            <li><a href="#">summer</a></li>
+            <li><a href="#">vacation</a></li>
+            <li><a href="#">writing</a></li>
+            <li><a href="#">person</a></li>
+            <li><a href="#">nature wallpaper</a></li>
+            <li><a href="#">concert</a></li>
+            <li><a href="#">friends</a></li>
+        </ul>
+    </section>
+
+</header>
+<div class="l-container clearfix">
+    <div class="discover-container clearfix">
+        <div class="discover-container__item">
+            <h3 class="discover-container__title">
+                <a href="#">
+                    Popular Searches
+                    <span class="fr">→</span>
+                </a>
+            </h3>
+            <div class="photo-grid" id="PopularSearches"></div>
+        </div>
+        <div class="discover-container__item">
+            <h3 class="discover-container__title">
+                <a href="#">
+                    Popular Photos
+                    <span class="fr">→</span>
+                </a>
+            </h3>
+            <div class="photo-grid" id="PopularPhotos"></div>
+        </div>
+        <div class="discover-container__item discover-container__item--photographers">
+            <h3 class="discover-container__title">
+                <a href="#">
+                    Top Photographers
+                    <span class="fr">→</span>
+                </a>
+            </h3>
+            <div id="photographersBox"></div>
+        </div>
+        <div class="discover-container__item discover-container__item--ad">
+            <h3 class="discover-container__title">
+                <a href="#">
+                    Browse Photos by Color
+                    <span class="fr">→</span>
+                </a>
+            </h3>
+            <a href="./pexels_color.html"  class="photo-colors__color " title="#ffffff"  style="background:#ffffff;"></a>
+            <a href="#"  class="photo-colors__color " title="#808080"  style="background:#808080;"></a>
+            <a href="#"  class="photo-colors__color " title="#000000"  style="background:#000000;"></a>
+            <a href="#"  class="photo-colors__color " title="#0000cc"  style="background:#0000cc;"></a>
+            <a href="#"  class="photo-colors__color " title="#0099ff"  style="background:#0099ff;"></a>
+            <a href="#"  class="photo-colors__color " title="#7dbae8"  style="background:#7dbae8;"></a>
+            <a href="#"  class="photo-colors__color " title="#00ffff"  style="background:#00ffff;"></a>
+            <a href="#"  class="photo-colors__color " title="#66ffcc"  style="background:#66ffcc;"></a>
+            <a href="#"  class="photo-colors__color " title="#99ff99"  style="background:#99ff99;"></a>
+            <a href="#"  class="photo-colors__color " title="#33cc33"  style="background:#33cc33;"></a>
+            <a href="#"  class="photo-colors__color " title="#ccff33"  style="background:#ccff33;"></a>
+            <a href="#"  class="photo-colors__color " title="#ffff00"  style="background:#ffff00;"></a>
+            <a href="#"  class="photo-colors__color " title="#ff9933"  style="background:#ff9933;"></a>
+            <a href="#"  class="photo-colors__color " title="#ffcc99"  style="background:#ffcc99;"></a>
+            <a href="#"  class="photo-colors__color " title="#ffb3b3"  style="background:#ffb3b3;"></a>
+            <a href="#"  class="photo-colors__color " title="#ff0000"  style="background:#ff0000;"></a>
+        </div>
+    </div>
+    <div class="title">
+        <h2 class="title__headline">New Stock Photos</h2>
+        <p class="title__more">Daily 100 new high-quality photos</p>
+    </div>
+    <div class="photos" id="photoBox"></div>
+    <div id="alert" >没有更多数据了！</div>
+</div>
+<script type="javascript/template" id="PopularSearchesTemplate">
+    {{each}}
+    <a class="search-small" href="{{$value.href}}">
+        <h4 class="search-small__title">{{$value.alt}}</h4>
+        <img alt="{{$value.alt}}" class="discover-container-image" src="{{$value.src}}">
+    </a>
+    {{/each}}
+</script>
+<script type="javascript/template" id="PopularPhotosTemplate">
+    {{each}}
+    <a href="{{$value.href}}">
+        <img class="discover-container-image"  alt="{{$value.alt}}" src="{{$value.src}}">
+    </a>
+    {{/each}}
+</script>
+<script type="javascript/trmplate" id ="photographersTemplate">
+    {{each}}
+    <a class="tiny-profile"  href="{{$value.fref}}">
+        <img alt="{{$value.alt}}" class="tiny-profile__img" width="30" height="30" src="{{$value.src}}">
+         <span class="tiny-profile__name"> {{$value.alt}} </span>
+         <span class="tiny-profile__downloads">
+               {{$value.download}}
+         </span>
+    </a>
+    {{/each}}
+</script>
+<script type="javascript/template" id="photoTemplate">
+    {{each}}
+    <article class="photo-item">
+            <a href="{{$value.a.href}}"  title="{{$value.a.title}}">
+            <img  style= "{{$value.img.style}}" alt="{{$value.img.alt}}"  src="{{$value.img.src}}">
+            </a>
+            <button class="js-like js-like-132996 btn-like btn-like--small photo-item__info" data-photo-id="132996">
+            <svg viewBox="0 0 100 100" class="icon-heart"><use xmlns:xlink="icons-f2fe61c7dbcfb844b56cd303311c6a901d16f94d093bc733c9ec4e5bc612233a.svg" xlink:href="#iconHeart"></use></svg>
+            </button>
+    </article>
+    {{/each}}
+</script>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/arttemplater/template.js"></script>
+<script src="js/pexels.js"></script>
+<script src="js/configPhoto.js"></script>
+</body>
+</html>

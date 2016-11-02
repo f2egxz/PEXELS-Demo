@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>LOGIN/SIGN UP</title>
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.js"></script>
+    <script src="lib/respond/respond.js"></script>
+    <![endif]-->
+    <link rel="icon" href="images/pexels-icon-c89972421096df12c2b564575d6df896b612ca415b706033d2e44562f97343bc.png">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/pexelsPage_footer.css">
+
+</head>
+<body>
+<nav class="navbar">
+    <div class="container-fluid clearfix">
+        <div class="navbar-header fr">
+            <button type="button" class="navbar-toggle navbar-search " id="navbar-search">
+                <a href="javascript:;" class="pexels-search"></a>
+            </button>
+            <button type="button" class="navbar-toggle navbar-menue" id="navbarMenueBtn">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div id="navbarMenueBox"></div>
+        </div>
+        <a href="#" class="navbar-brand">
+            <img src="images/pexels-sm-7627e30869d1427acc013a27df1995c0a02c4122903e4831e3ed95a31469449d.png" height="21"
+                 width="95"/>
+        </a>
+        <form class="navbar-form ">
+            <input type="text" class="form-control" placeholder="Search for free photos">
+            <a href="#" class="pexels-search"></a>
+        </form>
+        <ul class="navbar-nav fr">
+            <li class="fl"><a href="##">License</a></li>
+            <li class="fl"><a href="##">Upload</a></li>
+            <li class="fl"><a href="##">
+                Browse
+                <svg width="8" class="navbar__icon-caret" height="5" viewBox="0 0 8 5">
+                    <path d="M6.752 1.514C7.472.678 7.158 0 6.057 0H1.052C-.05 0-.332.654.426 1.46L2.38 3.54c.758.806 1.952.786 2.674-.054l1.698-1.972z"
+                          fill="#FFFFFF" fill-rule="evenodd"></path>
+                </svg>
+            </a></li>
+            <li class="fl">
+                <a href="##">•••</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="alert" v-show='showAlert'>{{alert}}</div>
+<div class="centered-box">
+    <div class="tabs">
+        <a class="tabs__tab" v-bind:class="{'tabs__tab--active':isLogin}" @click='setState'
+           href="#/login">Login</a>
+        <a class="tabs__tab " v-bind:class="{'tabs__tab--active':!isLogin}"
+           @click='setState' href="#/signUp" >Sign Up</a>
+    </div>
+
+    <router-view></router-view>
+
+</div>
+
+<footer class="footer clearfix">
+    <div class="l-container-center">
+        <div class="l-row">
+            <div class="l-sm-6 footer_list">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="##"> Pexels Videos </a></li>
+                    <li><a href="##"> Newsletter </a></li>
+                    <li><a href="##"> Blog </a></li>
+                    <li><a href="##"> Designbreak </a></li>
+                    <li><a href="##"> API </a></li>
+                    <li><a href="##"> FAQ </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 footer_list">
+                <h5>More</h5>
+                <ul>
+                    <li><a href="##"> Popular photos </a></li>
+                    <li><a href="##"> High definition wallpapers </a></li>
+                    <li><a href="##"> Photo license </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 hidden-sm footer_list footer_font_small">
+                <h5>Photos</h5>
+                <ul>
+                    <li><a href="##">Nature images, wallpapers </a></li>
+                    <li><a href="##"> Beach pictures </a></li>
+                    <li><a href="##"> Flower images </a></li>
+                    <li><a href="##"> Black and white photography </a></li>
+                    <li><a href="##"> Dog images </a></li>
+                    <li><a href="##"> City pictures, NYC wallpaper </a></li>
+                    <li><a href="##"> Desert pictures </a></li>
+                    <li><a href="##"> Black wallpaper </a></li>
+                    <li><a href="##"> Royalty free images </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-6 hidden-sm footer_list footer_font_small">
+                <ul>
+                    <li><a href="##">Christmas images </a></li>
+                    <li><a href="##"> Car images, wallpapers </a></li>
+                    <li><a href="##"> Pictures of people </a></li>
+                    <li><a href="##"> Business images </a></li>
+                    <li><a href="##"> Technology images </a></li>
+                    <li><a href="##"> Landscape pictures </a></li>
+                    <li><a href="##"> Winter pictures </a></li>
+                    <li><a href="##"> Sunset pictures </a></li>
+                    <li><a href="##"> Desktop wallpaper, backgrounds </a></li>
+                    <li><a href="##"> Public domain images </a></li>
+                </ul>
+            </div>
+            <div class="l-sm-12 footer_more">
+                <div class="fr fl-sm">
+                    <p class="fl">Follow us:</p>
+                    <ul class="fl footer_more_ico">
+                        <li><a href="##" class="social-list_item"><i class="icon-facebook"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-twitter"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-gplus"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-pinterest"></i></a></li>
+                        <li><a href="##" class="social-list_item"><i class="icon-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script id='login-tmpl' type='text/v-template'>
+    <form class="form centered-box_content">
+        <label class="form__label">
+            <p>Email</p>
+            <input autofocus="autofocus" class="form__input" type="email" v-model='email'
+                   name="user[email]">
+        </label>
+        <label class="form__label">
+            <p>Password</p>
+            <input class="form__input" type="password" v-model="password" name="user[password]">
+        </label>
+        <button  type="button" class="btn-secondary form__input" @click="submitLogin">Login</button>
+        <a href="##">Forgot your password?</a>
+    </form>
+</script>
+<script id='signUp-tmpl' type='text/v-template'>
+    <form class="form centered-box_content">
+        <div class="form__group fl">
+            <label class="form__label" for="user_first_name">First name</label>
+            <input autofocus="autofocus" required="required" class="form__input" maxlength="25" size="25"
+                   type="text"
+                   name="user[first_name]" id="user_first_name" v-model='firstName'>
+        </div>
+        <div class="form__group fl">
+            <label for="user_last_name" class="form__label">Last name <span
+                    class="form__description">(optional)</span></label>
+            <input class="form__input" maxlength="25" size="25" type="text" name="user[last_name]"
+                   id="user_last_name" v-model='lastName'>
+        </div>
+        <label class="form__label">
+            <p>Email</p>
+            <input required="required" class="form__input" type="email" value="" name="user[email]" v-model='email'>
+        </label>
+        <label class="form__label">
+            <p>Password<span class="form__description">(6 characters minimum)</span></p>
+            <input class="form__input" type="password" name="user[password]" v-model='password'>
+        </label>
+        <div class="">
+            <label>
+                <input type="checkbox" name="user[subscribed_newsletter]" v-model='checked'>
+                Get the best photos in your inbox and receive 40 exclusive photos
+            </label>
+        </div>
+        <input value="en" type="hidden" name="user[locale]" id="user_locale">
+        <button class="btn-secondary form__input" @click="submitSignUp">Login</button>
+        <small class="l-lg-12 form__description text-center">
+            By joining, you agree to our <a href="index-231.htm" tppabs="https://www.pexels.com/terms-of-service/"
+                                            rel="nofollow" target="_blank">Terms of Service</a> and <a
+                href="index-232.htm" tppabs="https://www.pexels.com/privacy-policy/" rel="nofollow" target="_blank">Privacy
+            Policy</a>
+        </small>
+    </form>
+</script>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="js/login.js"></script>
+<script src='lib/vue/vue.js'></script>
+<script src="lib/vue-router/vue-router.js"></script>
+<script>
+    var alert = new Vue({
+        el:'.alert',
+        data:{
+            showAlert:false,
+            alert:'You need to login or sign up before continuing.',
+        }
+    })
+    var main = new Vue({
+           el:'.tabs',
+           data:{
+               active:'login',
+               isLogin:true,
+           },
+           methods:{
+               setState:function(){
+                   this.isLogin = !this.isLogin;
+               }
+           }
+    })
+
+    var login = Vue.extend({
+        template:$('#login-tmpl').html(),
+        data:function(){
+            return {
+                email:'',
+                password:''
+            }
+        },
+        methods:{
+            submitLogin:function(){
+                var userinfo = {};
+                var Reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                var yanzheng = Reg.test(this.email);
+                if (this.email.trim()=='' || this.password.trim() == '') {
+                    alert.alert = '请输入用户名和密码！';
+                    alert.showAlert = true;
+                    return;
+                }
+                if (!yanzheng) {
+                    alert.showAlert = true;
+                    alert.alert = '请输入正确的邮箱！';
+                    return;
+                }
+                alert.showAlert = false;
+                userinfo.useremail = this.email;
+                userinfo.userpassword = this.password;
+                console.log(userinfo);
+                this.email='';
+                this.password='';
+                confirm('您好: '+userinfo.useremail+' 登录成功！')
+            }
+        }
+    }
+    )
+    var signUp  = Vue.extend({
+        template:$('#signUp-tmpl').html(),
+        data:function(){
+            return {
+            firstName : '',
+            lastName : '',
+            email : '',
+            password : '',
+            checked : false
+            }
+        },
+        methods:{
+            submitSignUp:function(){
+                var userinfo = {};
+                var Reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                var yanzheng = Reg.test(this.email);
+                if(this.firstName.trim()==''){
+                    alert.showAlert = true;
+                    alert.alert  = '请输入名字！';
+                    return;
+                }
+                if(!yanzheng||this.password.trim()==''){
+                    alert.showAlert  = true;
+                    alert.alert  = '请输入正确的邮箱和密码！';
+                    return;
+                }
+                alert.showAlert = false;
+                userinfo.userFirst_name = this.firstName;
+                userinfo.userLast_name = this.lastName;
+                userinfo.userEmail = this.email;
+                userinfo.userPassword = this.password;
+                userinfo.userSubscribed_newsletter = this.checked;
+                console.log(userinfo);
+                this.firstName='';
+                this.lastName='';
+                this.email='';
+                this.password='';
+                this.checked = false;
+                confirm('恭喜'+ userinfo.userFirst_name+'注册成功')
+            }
+        }
+    })
+
+
+    var App  = Vue.extend({})
+
+    var router = new VueRouter()
+
+    router.map({
+        '/login':{
+            name:'Login',
+            component:login
+        },
+        '/signUp':{
+            name:'sighUp',
+            component:signUp
+        }
+    })
+    router.redirect({'*':'/login'});
+    router.start(App,"body")
+
+</script>
+</body>
+</html>
