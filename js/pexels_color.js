@@ -1,5 +1,6 @@
 $(function () {
     var oldhash = null;
+    var phfl = {};
     $('.title_more').on('click', 'a', function () {
         $('.title_more>a').removeClass('photo-colors__color-active');
         $(this).addClass('photo-colors__color-active');
@@ -12,11 +13,16 @@ $(function () {
         $('#photoBox').empty();
         $('#photoBox').attr('page', 1);
 
-        var phfl = {};
         // $.extend(true,phfl,photosFlow);
         Object.assign(phfl,photosFlow);
-        phfl.init('#photoBox', "php/pexelsPhoto.php", address);
+        phfl.init(phfl,'#photoBox', "php/pexelsPhoto.php", address);
     })
     $('#first').click();
+    $(window).resize(function(){
+        phfl.resizePF();
+    });
+    $(window).scroll(function(){
+        phfl.scrollPF();
+    });
 
 })

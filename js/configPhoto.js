@@ -1,8 +1,8 @@
 /**
- * 异步请求图片，调用init() /设置图片渲染/和 _asyncRequestPhoto()/异步加载图片信息/，方法就可以
- * @type {{winWidth: (any), photoData: Array, num: number, oldNum: number, init: photosFlow.init, _setPhoto: photosFlow.setPhoto, _asyncRequestPhoto: photosFlow._asyncRequestPhoto}}
+ * 郭栩志写的用于页面请求图片并将图片渲染到页面,要求页面中有下面的标签和模板
+ * init:初始化对象执行，scrollPF：页面滚动时执行，resizePF：页面宽度改变时执行
+ * @type {{winWidth: (any), photoData: Array, num: number, oldNum: number, config: {item: string, url: string, reqjson: string}, object: null, init: photosFlow.init, scrollPF: photosFlow.scrollPF, resizePF: photosFlow.resizePF, _setPhoto: photosFlow._setPhoto, _asyncRequestPhoto: photosFlow._asyncRequestPhoto}}
  */
-
 //<div class="photos clearfix" id="photoBox"></div>
 // <div id="alert" >没有更多数据了！</div>
 //
@@ -21,26 +21,37 @@
 
 
 var photosFlow = {
-    winWidth : $(window).width(),
+    winWidth : null,
     photoData : [],
     num : 0,
     oldNum : 0,
-    init:function (item,url,reqjson){
-        var json = reqjson;
-        var self = this;
-        this._asyncRequestPhoto(item,url,json);
-        $(window).resize(function(){
-            self.winWidth = $(window).width();
-            self.num = 0;
-            self.oldNum = 0;
-            self._setPhoto();
-        });
-        $(window).scroll(function(){
-            if($("#photoBox .photo-item:last").offset().top <= $(window).scrollTop() + $(window).height() &&!$("#photoBox").hasClass('loading')){
-                self._asyncRequestPhoto(item,url,json);
-            }
-        });
-
+    config:{item:'xx',url:'xx',reqjson:'xx'},
+    object:null,
+    /**
+     *
+     * @param object:创建出来的对象名
+     * @param item：string 容器的Id
+     * @param url: string 请求地址
+     * @param reqjson：string 请求的JSON地址
+     */
+    init:function (object,item,url,reqjson){
+        photosFlow.object = object;
+        photosFlow.config.item=item;
+        photosFlow.config.url=url;
+        photosFlow.config.reqjson=reqjson;
+        photosFlow.object.winWidth = $(window).width();
+        this._asyncRequestPhoto(photosFlow.config.item,photosFlow.config.url,photosFlow.config.reqjson);
+    },
+    scrollPF: function(){
+        if($("#photoBox .photo-item:last").offset().top <= $(window).scrollTop() + $(window).height() &&!$("#photoBox").hasClass('loading')){
+            photosFlow.object._asyncRequestPhoto(photosFlow.config.item,photosFlow.config.url,photosFlow.config.reqjson);
+        }
+    },
+    resizePF:function(){
+        photosFlow.object.winWidth = $(window).width();
+        photosFlow.object.num = 0;
+        photosFlow.object.oldNum = 0;
+        photosFlow.object._setPhoto();
     },
     _setPhoto : function () {
         //父盒子的宽度
@@ -119,3 +130,4 @@ var photosFlow = {
         })
     }
 }
+

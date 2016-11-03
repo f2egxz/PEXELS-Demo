@@ -1,19 +1,29 @@
 $(function(){
+    var phfl = {};
+    Object.assign(phfl,photosFlow);
+    var address = '../json/photodata.json';
+    phfl.init(phfl,'#photoBox', "php/pexelsPhoto.php", address);
     var winWidth = $(window).width();
     init();
-    navbarChange();
     function init (){
         $(window).resize(function(){
-             winWidth = $(window).width();
+            phfl.resizePF();
+            winWidth = $(window).width();
             navbarFormToggle();
             navbarSearchToggle();
+        });
+        $(window).scroll(function(){
+            navbarChange();
+            phfl.scrollPF();
         });
         asyncPopularSearches();
         asyncPopularPhotos();
         asyncphotographers();
+        $("#navbar-search").on("click",function(){
+            $(".navbar .navbar-form").slideToggle(300);
+        })
     };
     function navbarChange (){
-        $(window).scroll(function(){
             $(window).scrollTop()>200
                 ? $(".navbar").css({"background-color": "#222222"})
                 :$(".navbar").css({"background-color": "transparent"});
@@ -22,10 +32,6 @@ $(function(){
                 :$(".navbar-brand").css({"display":"none"});
             navbarFormToggle();
             navbarSearchToggle();
-        })
-        $("#navbar-search").on("click",function(){
-            $(".navbar .navbar-form").slideToggle(300);
-        })
     };
     function navbarFormToggle(){
         if($(window).width()>850 && $(window).scrollTop()>200){
@@ -88,9 +94,4 @@ $(function(){
             }
         })
     };
-
-    var phfl = {};
-    $.extend(true,phfl,photosFlow);
-    var address = '../json/photodata.json';
-    phfl.init('#photoBox', "php/pexelsPhoto.php", address);
 })
